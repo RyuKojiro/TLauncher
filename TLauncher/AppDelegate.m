@@ -25,7 +25,7 @@
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
-	[AppDelegate openFile:filename withTerminalCommand:@"vim"];
+	[AppDelegate openFile:filename withTerminalCommand:@"$EDITOR"];
 	return YES;
 }
 
