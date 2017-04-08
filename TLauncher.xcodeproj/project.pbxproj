@@ -21,6 +21,7 @@
 		E67907F91E98BEB500670D8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E67907FC1E98BEB500670D8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		E67907FE1E98BEB500670D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E67908041E98C38D00670D8C /* AppIcon.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.sketch; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 				E67907F91E98BEB500670D8C /* Assets.xcassets */,
 				E67907FB1E98BEB500670D8C /* MainMenu.xib */,
 				E67907FE1E98BEB500670D8C /* Info.plist */,
+				E67908041E98C38D00670D8C /* AppIcon.sketch */,
 				E67907F61E98BEB500670D8C /* Supporting Files */,
 			);
 			path = TLauncher;
