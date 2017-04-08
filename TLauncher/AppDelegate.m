@@ -35,12 +35,19 @@
 	return YES;
 }
 
++ (void) activateTerminal {
+	NSRunningApplication *terminal = [[NSRunningApplication runningApplicationsWithBundleIdentifier:@"com.apple.Terminal"] firstObject];
+	[terminal activateWithOptions:NSApplicationActivateIgnoringOtherApps];
+}
+
 + (void) openFile:(NSString *)fileName withTerminalCommand:(NSString *)command {
 	NSString *source = [NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@ %@ && exit\"", command, fileName];
 
 	NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:source];
 	[appleScript executeAndReturnError:nil];
 	[appleScript release];
+
+	[self activateTerminal];
 }
 
 @end
