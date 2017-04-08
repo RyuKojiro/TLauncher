@@ -13,10 +13,13 @@
 @property (assign) IBOutlet NSWindow *window;
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate {
+	BOOL launchedByOwnVolition;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application
+	// This relies on the fact that it always happens after the open if the open caused the launch
+	launchedByOwnVolition = YES;
 }
 
 
@@ -26,6 +29,9 @@
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
 	[AppDelegate openFile:filename withTerminalCommand:@"$EDITOR"];
+	if (!launchedByOwnVolition) {
+		[NSApp terminate:self];
+	}
 	return YES;
 }
 
