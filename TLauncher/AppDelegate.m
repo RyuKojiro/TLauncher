@@ -10,7 +10,7 @@
 
 @interface AppDelegate ()
 
-@property (weak) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow *window;
 @end
 
 @implementation AppDelegate
@@ -24,5 +24,17 @@
 	// Insert code here to tear down your application
 }
 
+- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
+	[AppDelegate openFile:filename withTerminalCommand:@"vim"];
+	return YES;
+}
+
++ (void) openFile:(NSString *)fileName withTerminalCommand:(NSString *)command {
+	NSString *source = [NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@ %@\"", command, fileName];
+
+	NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:source];
+	[appleScript executeAndReturnError:nil];
+	[appleScript release];
+}
 
 @end
