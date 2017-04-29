@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TLSettingsWindowController.h"
 
 @interface AppDelegate ()
 
@@ -14,6 +15,7 @@
 @end
 
 @implementation AppDelegate {
+	TLSettingsWindowController *settings;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -23,8 +25,12 @@
 	 */
 	ProcessSerialNumber psn = { 0, kCurrentProcess };
 	TransformProcessType(&psn, kProcessTransformToForegroundApplication);
-}
 
+	settings = [[TLSettingsWindowController alloc] initWithWindowNibName:@"TLSettingsWindowController"];
+	[settings.window makeKeyAndOrderFront:self];
+//	[settings.window becomeFirstResponder];
+//	[NSApp activateIgnoringOtherApps:YES];
+}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
 	// Insert code here to tear down your application
