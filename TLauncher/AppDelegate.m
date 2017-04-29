@@ -14,12 +14,13 @@
 @end
 
 @implementation AppDelegate {
-	BOOL launchedByOwnVolition;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// This relies on the fact that it always happens after the open if the open caused the launch
-	launchedByOwnVolition = YES;
+	/*
+	 * If the application is NOT launched as a result of opening a file, this
+	 * method is called and applicationDidFinishLaunching is not.
+	 */
 }
 
 
@@ -28,10 +29,12 @@
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
+	/*
+	 * If the application is launched as a result of opening a file, this
+	 * method is called immedately, before applicationDidFinishLaunching.
+	 */
 	[AppDelegate openFile:filename withTerminalCommand:@"$EDITOR"];
-	if (!launchedByOwnVolition) {
-		[NSApp terminate:self];
-	}
+	[NSApp terminate:self];
 	return YES;
 }
 
