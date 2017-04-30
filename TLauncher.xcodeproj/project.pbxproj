@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E66F9A211EB5521E005A2ACA /* LaunchServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66F9A201EB5521E005A2ACA /* LaunchServices.framework */; };
+		E66F9A261EB57444005A2ACA /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66F9A251EB57444005A2ACA /* CoreServices.framework */; };
 		E67907F51E98BEB500670D8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E67907F41E98BEB500670D8C /* AppDelegate.m */; };
 		E67907F81E98BEB500670D8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E67907F71E98BEB500670D8C /* main.m */; };
 		E67907FA1E98BEB500670D8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E67907F91E98BEB500670D8C /* Assets.xcassets */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E66F9A201EB5521E005A2ACA /* LaunchServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchServices.framework; path = System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework; sourceTree = SDKROOT; };
+		E66F9A251EB57444005A2ACA /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		E67907F01E98BEB500670D8C /* TLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E67907F31E98BEB500670D8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E67907F41E98BEB500670D8C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E66F9A211EB5521E005A2ACA /* LaunchServices.framework in Frameworks */,
+				E66F9A261EB57444005A2ACA /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +46,7 @@
 		E66F9A1D1EB551C2005A2ACA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E66F9A201EB5521E005A2ACA /* LaunchServices.framework */,
+				E66F9A251EB57444005A2ACA /* CoreServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
