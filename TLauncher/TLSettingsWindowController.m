@@ -18,13 +18,22 @@
     [super windowDidLoad];
 }
 
+- (void) dismissController:(id)sender {
+	[self.window orderOut:sender];
+	[super dismissController:sender];
+
+	if ([_delegate respondsToSelector:@selector(settingsWindowDismissed:)]) {
+		[_delegate settingsWindowDismissed:self];
+	}
+}
+
 - (IBAction)save:(id)sender {
 	[self.settings save];
-	[self.window orderOut:sender];
+	[self dismissController:sender];
 }
 
 - (IBAction)cancel:(id)sender {
-	[self.window orderOut:sender];
+	[self dismissController:sender];
 }
 
 - (IBAction)add:(id)sender {

@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "TLSettingsWindowController.h"
 #import "TLSettings.h"
 
 @interface AppDelegate ()
@@ -24,6 +23,10 @@
 	[super dealloc];
 }
 
+- (void) settingsWindowDismissed:(TLSettingsWindowController *)controller {
+	[NSApp terminate:self];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	/*
 	 * If the application is NOT launched as a result of opening a file, this
@@ -38,6 +41,7 @@
 
 	// Now show the settings window
 	settingsWindowController = [[TLSettingsWindowController alloc] initWithWindowNibName:@"TLSettingsWindowController"];
+	settingsWindowController.delegate = self;
 	[settingsWindowController.window makeKeyAndOrderFront:self];
 }
 

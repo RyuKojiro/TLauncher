@@ -9,10 +9,18 @@
 #import <Cocoa/Cocoa.h>
 #import "TLSettings.h"
 
+@class TLSettingsWindowController;
+
+@protocol TLSettingsWindowDelegate <NSObject>
+- (void) settingsWindowDismissed:(TLSettingsWindowController *)controller;
+@end
+
 @interface TLSettingsWindowController : NSWindowController <NSTableViewDelegate, NSTableViewDataSource>
 
 @property (assign) IBOutlet TLSettings *settings;
 @property (assign) IBOutlet NSTableView *tableView;
+
+@property (assign) id <TLSettingsWindowDelegate> delegate;
 
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
