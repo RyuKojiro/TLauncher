@@ -16,20 +16,20 @@
         <window title="Filetype Associations" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+            <rect key="contentRect" x="196" y="240" width="480" height="385"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <rect key="frame" x="0.0" y="0.0" width="480" height="385"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nL-SR-YoY">
-                        <rect key="frame" x="20" y="61" width="440" height="189"/>
+                        <rect key="frame" x="20" y="61" width="440" height="229"/>
                         <clipView key="contentView" id="dwk-sd-WiW">
-                            <rect key="frame" x="1" y="0.0" width="438" height="188"/>
+                            <rect key="frame" x="1" y="0.0" width="438" height="228"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="y2J-Hz-GGG" id="zgh-Px-atm">
-                                    <rect key="frame" x="0.0" y="0.0" width="438" height="165"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="438" height="205"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -144,27 +144,50 @@ Gw
                             <action selector="cancel:" target="-2" id="2DW-6A-Rd5"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stB-aZ-zdK">
+                        <rect key="frame" x="18" y="348" width="142" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filetype Associations" id="y2E-ll-YEN">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d7-Uz-mDe">
+                        <rect key="frame" x="18" y="298" width="444" height="42"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1RD-JX-t8S">
+                            <font key="font" metaFont="smallSystem"/>
+                            <string key="title">Here you can assign actions to filetypes, by extension. When saving new extension associations, files of that type will be opened by the command specified. You may use variables that are valid after your shell starts, such as $EDITOR.</string>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="jqp-un-cjn" secondAttribute="bottom" constant="20" symbolic="YES" id="BXn-js-VLC"/>
+                    <constraint firstItem="9nL-SR-YoY" firstAttribute="top" secondItem="9d7-Uz-mDe" secondAttribute="bottom" constant="8" symbolic="YES" id="IbT-ln-ywr"/>
                     <constraint firstAttribute="bottom" secondItem="n3O-GC-x5O" secondAttribute="bottom" constant="21" id="M40-be-9XP"/>
                     <constraint firstItem="K32-Ib-amA" firstAttribute="top" secondItem="9nL-SR-YoY" secondAttribute="bottom" constant="21" id="MeY-Y1-ctx"/>
                     <constraint firstItem="9nL-SR-YoY" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" symbolic="YES" id="PFs-yQ-iAb"/>
                     <constraint firstAttribute="trailing" secondItem="IwG-Q6-ib3" secondAttribute="trailing" constant="20" symbolic="YES" id="Qcb-kP-ozf"/>
+                    <constraint firstAttribute="trailing" secondItem="9d7-Uz-mDe" secondAttribute="trailing" constant="20" symbolic="YES" id="Qnb-ad-Iam"/>
                     <constraint firstItem="jqp-un-cjn" firstAttribute="top" secondItem="9nL-SR-YoY" secondAttribute="bottom" constant="20" symbolic="YES" id="Uyo-96-xkc"/>
+                    <constraint firstItem="9d7-Uz-mDe" firstAttribute="top" secondItem="stB-aZ-zdK" secondAttribute="bottom" constant="8" symbolic="YES" id="W96-Iy-Cg2"/>
                     <constraint firstItem="n3O-GC-x5O" firstAttribute="leading" secondItem="K32-Ib-amA" secondAttribute="trailing" constant="-1" id="Zfi-Qd-itH"/>
                     <constraint firstAttribute="trailing" secondItem="9nL-SR-YoY" secondAttribute="trailing" constant="20" symbolic="YES" id="eK2-Hl-zyb"/>
                     <constraint firstItem="K32-Ib-amA" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" symbolic="YES" id="fIR-5H-TCU"/>
                     <constraint firstAttribute="bottom" secondItem="K32-Ib-amA" secondAttribute="bottom" constant="21" id="iEq-Ni-yyD"/>
                     <constraint firstItem="jqp-un-cjn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="n3O-GC-x5O" secondAttribute="trailing" constant="8" symbolic="YES" id="nBV-Xb-qsb"/>
+                    <constraint firstItem="9d7-Uz-mDe" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" symbolic="YES" id="oBY-Hs-hE7"/>
                     <constraint firstAttribute="bottom" secondItem="IwG-Q6-ib3" secondAttribute="bottom" constant="20" symbolic="YES" id="oGA-Ql-iyA"/>
-                    <constraint firstItem="9nL-SR-YoY" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="oWB-4r-BVh"/>
                     <constraint firstItem="IwG-Q6-ib3" firstAttribute="leading" secondItem="jqp-un-cjn" secondAttribute="trailing" constant="12" symbolic="YES" id="oeM-0i-eIx"/>
+                    <constraint firstItem="stB-aZ-zdK" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" symbolic="YES" id="wvS-6t-tFb"/>
+                    <constraint firstItem="stB-aZ-zdK" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="zbY-tb-BYv"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
+            <point key="canvasLocation" x="139" y="218.5"/>
         </window>
         <arrayController avoidsEmptySelection="NO" id="i63-KL-D4x" customClass="TLSettings">
             <declaredKeys>
