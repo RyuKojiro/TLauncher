@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "TLSettingsWindowController.h"
+#import "TLSettings.h"
 
 @interface AppDelegate ()
 
@@ -14,28 +16,59 @@
 @end
 
 @implementation AppDelegate {
+	TLSettingsWindowController *settingsWindowController;
+}
+
+- (void) dealloc {
+	[settingsWindowController release];
+	[super dealloc];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	/*
 	 * If the application is NOT launched as a result of opening a file, this
 	 * method is called and applicationDidFinishLaunching is not.
+	 *
+	 * Because we are being launched for settings customization, first become
+	 * a UI application, to be much friendlier to the user.
 	 */
 	ProcessSerialNumber psn = { 0, kCurrentProcess };
 	TransformProcessType(&psn, kProcessTransformToForegroundApplication);
-}
+	[NSApp activateIgnoringOtherApps:YES];
 
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-	// Insert code here to tear down your application
+	// Now show the settings window
+	settingsWindowController = [[TLSettingsWindowController alloc] initWithWindowNibName:@"TLSettingsWindowController"];
+	[settingsWindowController.window makeKeyAndOrderFront:self];
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
 	/*
 	 * If the application is launched as a result of opening a file, this
 	 * method is called immedately, before applicationDidFinishLaunching.
+	 *
+	 * First we load up our settings. After that we execute the action mapped
+	 * in the settings controller. Finally, we terminate ourself since we
+	 * don't need to stick around.
 	 */
-	[AppDelegate openFile:filename withTerminalCommand:@"$EDITOR"];
+	TLSettings *settings = [[TLSettings alloc] init];
+	NSString *action = [settings actionForFileExtension:filename.pathExtension];
+
+	if (action) {
+		[AppDelegate openFile:filename withTerminalCommand:action];
+	}
+	else {
+		NSAlert *alert = [[NSAlert alloc] init];
+
+		alert.alertStyle = NSAlertStyleCritical;
+		alert.messageText = @"No action assigned.";
+		alert.informativeText = [NSString stringWithFormat:@"The file extension “%@” is associated with TLauncher, but does not have an action assigned to it. Please open TLauncher and set an action for this extension.", filename.pathExtension];
+
+		[alert runModal];
+		[alert release];
+	}
+
+	[settings release];
+
 	[NSApp terminate:self];
 	return YES;
 }

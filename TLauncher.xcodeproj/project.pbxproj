@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E61E17001EB58DFE001BF44A /* TLSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E61E16FF1EB58DFE001BF44A /* TLSettings.m */; };
+		E66F9A261EB57444005A2ACA /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66F9A251EB57444005A2ACA /* CoreServices.framework */; };
 		E67907F51E98BEB500670D8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E67907F41E98BEB500670D8C /* AppDelegate.m */; };
 		E67907F81E98BEB500670D8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E67907F71E98BEB500670D8C /* main.m */; };
 		E67907FA1E98BEB500670D8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E67907F91E98BEB500670D8C /* Assets.xcassets */; };
 		E67907FD1E98BEB500670D8C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67907FB1E98BEB500670D8C /* MainMenu.xib */; };
+		E6B9E8731EB520DB00E4A633 /* TLSettingsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B9E8711EB520DB00E4A633 /* TLSettingsWindowController.m */; };
+		E6B9E8741EB520DB00E4A633 /* TLSettingsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6B9E8721EB520DB00E4A633 /* TLSettingsWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E61E16FE1EB58DFE001BF44A /* TLSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSettings.h; sourceTree = "<group>"; };
+		E61E16FF1EB58DFE001BF44A /* TLSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSettings.m; sourceTree = "<group>"; };
+		E66F9A251EB57444005A2ACA /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		E67907F01E98BEB500670D8C /* TLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E67907F31E98BEB500670D8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E67907F41E98BEB500670D8C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -22,6 +29,9 @@
 		E67907FC1E98BEB500670D8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		E67907FE1E98BEB500670D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E67908041E98C38D00670D8C /* AppIcon.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.sketch; sourceTree = SOURCE_ROOT; };
+		E6B9E8701EB520DB00E4A633 /* TLSettingsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSettingsWindowController.h; sourceTree = "<group>"; };
+		E6B9E8711EB520DB00E4A633 /* TLSettingsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSettingsWindowController.m; sourceTree = "<group>"; };
+		E6B9E8721EB520DB00E4A633 /* TLSettingsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLSettingsWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E66F9A261EB57444005A2ACA /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E66F9A1D1EB551C2005A2ACA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E66F9A251EB57444005A2ACA /* CoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E67907E71E98BEB500670D8C = {
 			isa = PBXGroup;
 			children = (
 				E67907F21E98BEB500670D8C /* TLauncher */,
 				E67907F11E98BEB500670D8C /* Products */,
+				E66F9A1D1EB551C2005A2ACA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +81,11 @@
 				E67907FE1E98BEB500670D8C /* Info.plist */,
 				E67908041E98C38D00670D8C /* AppIcon.sketch */,
 				E67907F61E98BEB500670D8C /* Supporting Files */,
+				E6B9E8701EB520DB00E4A633 /* TLSettingsWindowController.h */,
+				E6B9E8711EB520DB00E4A633 /* TLSettingsWindowController.m */,
+				E6B9E8721EB520DB00E4A633 /* TLSettingsWindowController.xib */,
+				E61E16FE1EB58DFE001BF44A /* TLSettings.h */,
+				E61E16FF1EB58DFE001BF44A /* TLSettings.m */,
 			);
 			path = TLauncher;
 			sourceTree = "<group>";
@@ -132,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6B9E8741EB520DB00E4A633 /* TLSettingsWindowController.xib in Resources */,
 				E67907FA1E98BEB500670D8C /* Assets.xcassets in Resources */,
 				E67907FD1E98BEB500670D8C /* MainMenu.xib in Resources */,
 			);
@@ -144,8 +170,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61E17001EB58DFE001BF44A /* TLSettings.m in Sources */,
 				E67907F81E98BEB500670D8C /* main.m in Sources */,
 				E67907F51E98BEB500670D8C /* AppDelegate.m in Sources */,
+				E6B9E8731EB520DB00E4A633 /* TLSettingsWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +321,7 @@
 				E67908031E98BEB500670D8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
