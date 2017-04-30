@@ -19,6 +19,7 @@
 }
 
 - (IBAction)save:(id)sender {
+	[self.settings save];
 	[self.window orderOut:sender];
 }
 

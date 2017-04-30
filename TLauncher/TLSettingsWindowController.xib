@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TLSettingsWindowController">
             <connections>
+                <outlet property="settings" destination="i63-KL-D4x" id="f5w-Gl-D68"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>

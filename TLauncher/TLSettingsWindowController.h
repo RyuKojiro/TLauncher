@@ -7,8 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "TLSettings.h"
 
 @interface TLSettingsWindowController : NSWindowController <NSTableViewDelegate, NSTableViewDataSource>
+
+@property (assign) IBOutlet TLSettings *settings;
 
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;

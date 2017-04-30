@@ -11,5 +11,6 @@
 @interface TLSettings : NSArrayController
 
 - (NSString *) actionForFileExtension:(NSString *)extension;
+- (void) save;
 
 @end
