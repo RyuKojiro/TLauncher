@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E61E17001EB58DFE001BF44A /* TLSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E61E16FF1EB58DFE001BF44A /* TLSettings.m */; };
 		E66F9A261EB57444005A2ACA /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66F9A251EB57444005A2ACA /* CoreServices.framework */; };
 		E67907F51E98BEB500670D8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E67907F41E98BEB500670D8C /* AppDelegate.m */; };
 		E67907F81E98BEB500670D8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E67907F71E98BEB500670D8C /* main.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E61E16FE1EB58DFE001BF44A /* TLSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSettings.h; sourceTree = "<group>"; };
+		E61E16FF1EB58DFE001BF44A /* TLSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSettings.m; sourceTree = "<group>"; };
 		E66F9A251EB57444005A2ACA /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		E67907F01E98BEB500670D8C /* TLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E67907F31E98BEB500670D8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				E6B9E8701EB520DB00E4A633 /* TLSettingsWindowController.h */,
 				E6B9E8711EB520DB00E4A633 /* TLSettingsWindowController.m */,
 				E6B9E8721EB520DB00E4A633 /* TLSettingsWindowController.xib */,
+				E61E16FE1EB58DFE001BF44A /* TLSettings.h */,
+				E61E16FF1EB58DFE001BF44A /* TLSettings.m */,
 			);
 			path = TLauncher;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61E17001EB58DFE001BF44A /* TLSettings.m in Sources */,
 				E67907F81E98BEB500670D8C /* main.m in Sources */,
 				E67907F51E98BEB500670D8C /* AppDelegate.m in Sources */,
 				E6B9E8731EB520DB00E4A633 /* TLSettingsWindowController.m in Sources */,

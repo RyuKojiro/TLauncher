@@ -74,7 +74,7 @@
                                 </tableView>
                             </subviews>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="EIa-lx-du3">
+                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="EIa-lx-du3">
                             <rect key="frame" x="1" y="197" width="480" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -161,7 +161,7 @@ Gw
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
         </window>
-        <arrayController avoidsEmptySelection="NO" id="i63-KL-D4x">
+        <arrayController avoidsEmptySelection="NO" id="i63-KL-D4x" customClass="TLSettings">
             <declaredKeys>
                 <string>extension</string>
                 <string>action</string>

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TLSettingsWindowController.h"
+#import "TLSettings.h"
 
 @interface AppDelegate ()
 
@@ -15,11 +16,11 @@
 @end
 
 @implementation AppDelegate {
-	TLSettingsWindowController *settings;
+	TLSettingsWindowController *settingsWindowController;
 }
 
 - (void) dealloc {
-	[settings release];
+	[settingsWindowController release];
 	[super dealloc];
 }
 
@@ -36,16 +37,24 @@
 	[NSApp activateIgnoringOtherApps:YES];
 
 	// Now show the settings window
-	settings = [[TLSettingsWindowController alloc] initWithWindowNibName:@"TLSettingsWindowController"];
-	[settings.window makeKeyAndOrderFront:self];
+	settingsWindowController = [[TLSettingsWindowController alloc] initWithWindowNibName:@"TLSettingsWindowController"];
+	[settingsWindowController.window makeKeyAndOrderFront:self];
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
 	/*
 	 * If the application is launched as a result of opening a file, this
 	 * method is called immedately, before applicationDidFinishLaunching.
+	 *
+	 * First we load up our settings. After that we execute the action mapped
+	 * in the settings controller. Finally, we terminate ourself since we
+	 * don't need to stick around.
 	 */
-	[AppDelegate openFile:filename withTerminalCommand:@"$EDITOR"];
+	TLSettings *settings = [[TLSettings alloc] init];
+	NSString *action = [settings actionForFileExtension:filename.pathExtension];
+	[AppDelegate openFile:filename withTerminalCommand:action];
+	[settings release];
+
 	[NSApp terminate:self];
 	return YES;
 }
