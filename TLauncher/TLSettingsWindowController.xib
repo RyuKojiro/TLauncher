@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="TLSettingsWindowController">
             <connections>
                 <outlet property="settings" destination="i63-KL-D4x" id="f5w-Gl-D68"/>
+                <outlet property="tableView" destination="zgh-Px-atm" id="QRr-Nw-HFr"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -102,7 +103,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="add:" target="i63-KL-D4x" id="JqR-nX-fib"/>
+                            <action selector="add:" target="-2" id="uJ0-BO-2C9"/>
                             <binding destination="i63-KL-D4x" name="enabled" keyPath="canAdd" id="BYp-KO-NAg"/>
                         </connections>
                     </button>
@@ -191,7 +192,7 @@ Gw
             </connections>
             <point key="canvasLocation" x="139" y="218.5"/>
         </window>
-        <arrayController avoidsEmptySelection="NO" id="i63-KL-D4x" customClass="TLSettings">
+        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="i63-KL-D4x" customClass="TLSettings">
             <declaredKeys>
                 <string>extension</string>
                 <string>action</string>

@@ -12,8 +12,11 @@
 @interface TLSettingsWindowController : NSWindowController <NSTableViewDelegate, NSTableViewDataSource>
 
 @property (assign) IBOutlet TLSettings *settings;
+@property (assign) IBOutlet NSTableView *tableView;
 
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
+
+- (IBAction)add:(id)sender;
 
 @end

@@ -27,4 +27,17 @@
 	[self.window orderOut:sender];
 }
 
+- (IBAction)add:(id)sender {
+	[_settings addObject:_settings.newObject];
+	[_settings rearrangeObjects];
+
+	NSUInteger row = [_settings.arrangedObjects count] - 1;
+	NSIndexSet *set = [NSIndexSet indexSetWithIndex:row];
+	[_tableView selectRowIndexes:set byExtendingSelection:NO];
+	[_tableView editColumn:0
+					   row:row
+				 withEvent:nil
+					select:YES];
+}
+
 @end
