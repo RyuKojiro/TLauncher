@@ -71,6 +71,7 @@
                                     </tableColumns>
                                     <connections>
                                         <binding destination="i63-KL-D4x" name="content" keyPath="arrangedObjects" id="bd2-zd-k5G"/>
+                                        <binding destination="i63-KL-D4x" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="bd2-zd-k5G" id="Pgq-CJ-Mbi"/>
                                     </connections>
                                 </tableView>
                             </subviews>
@@ -101,7 +102,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="add:" target="i63-KL-D4x" id="mRT-bc-bmq"/>
+                            <action selector="add:" target="i63-KL-D4x" id="JqR-nX-fib"/>
                             <binding destination="i63-KL-D4x" name="enabled" keyPath="canAdd" id="BYp-KO-NAg"/>
                         </connections>
                     </button>
@@ -115,7 +116,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="remove:" target="i63-KL-D4x" id="fQp-22-hjT"/>
+                            <action selector="remove:" target="i63-KL-D4x" id="fmV-j1-ymW"/>
                             <binding destination="i63-KL-D4x" name="enabled" keyPath="canRemove" id="6CZ-wn-m8W"/>
                         </connections>
                     </button>
