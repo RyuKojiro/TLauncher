@@ -8,10 +8,50 @@
 
 #import "TLSettings.h"
 
+#define kExtensionKey       @"extension"
+#define kActionKey          @"action"
+#define kDefaultsStorageKey @"map"
+
 @implementation TLSettings
 
+- (void) setupInitialContent {
+	NSArray *defaults = [[NSUserDefaults standardUserDefaults] arrayForKey:kDefaultsStorageKey];
+	if (defaults) {
+		[self addObjects:defaults];
+	}
+	else {
+		[self addObject:@{kExtensionKey : @"txt",
+						  kActionKey    : @"$EDITOR"}];
+		[self addObject:@{kExtensionKey : @"log",
+						  kActionKey    : @"$EDITOR"}];
+	}
+}
+
+- (instancetype) initWithCoder:(NSCoder *)coder {
+	if (self = [super initWithCoder:coder]) {
+		[self setupInitialContent];
+	}
+	return self;
+}
+
+- (instancetype) init {
+	if (self = [super init]) {
+		[self setupInitialContent];
+	}
+	return self;
+}
+
+- (id) content {
+	return [super content];
+}
+
+- (void) save {
+	[[NSUserDefaults standardUserDefaults] setObject:self.content
+											  forKey:kDefaultsStorageKey];
+}
+
 - (NSString *) actionForFileExtension:(NSString *)extension {
-	return @"$EDITOR";
+	return self.content[kActionKey];
 }
 
 @end
