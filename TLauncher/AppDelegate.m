@@ -25,11 +25,10 @@
 	 */
 	ProcessSerialNumber psn = { 0, kCurrentProcess };
 	TransformProcessType(&psn, kProcessTransformToForegroundApplication);
+	[NSApp activateIgnoringOtherApps:YES];
 
 	settings = [[TLSettingsWindowController alloc] initWithWindowNibName:@"TLSettingsWindowController"];
 	[settings.window makeKeyAndOrderFront:self];
-//	[settings.window becomeFirstResponder];
-//	[NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
