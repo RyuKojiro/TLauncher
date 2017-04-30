@@ -10,9 +10,6 @@
 
 @interface TLSettingsWindowController : NSWindowController <NSTableViewDelegate, NSTableViewDataSource>
 
-- (IBAction)add:(id)sender;
-- (IBAction)remove:(id)sender;
-
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
 
