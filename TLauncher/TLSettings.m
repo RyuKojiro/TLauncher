@@ -51,7 +51,12 @@
 }
 
 - (NSString *) actionForFileExtension:(NSString *)extension {
-	return self.content[kActionKey];
+	for (NSDictionary *d in self.content) {
+		if ([d[kExtensionKey] isEqualToString:extension]) {
+			return d[kActionKey];
+		}
+	}
+	return nil;
 }
 
 @end
