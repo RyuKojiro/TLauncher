@@ -37,7 +37,10 @@
 }
 
 - (IBAction)add:(id)sender {
-	[_settings addObject:_settings.newObject];
+	NSObject *o = _settings.newObject;
+	[_settings addObject:o];
+	[o release];
+	
 	[_settings rearrangeObjects];
 
 	NSUInteger row = [_settings.arrangedObjects count] - 1;
