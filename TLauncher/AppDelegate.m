@@ -18,21 +18,26 @@
 	TLSettingsWindowController *settings;
 }
 
+- (void) dealloc {
+	[settings release];
+	[super dealloc];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	/*
 	 * If the application is NOT launched as a result of opening a file, this
 	 * method is called and applicationDidFinishLaunching is not.
+	 *
+	 * Because we are being launched for settings customization, first become
+	 * a UI application, to be much friendlier to the user.
 	 */
 	ProcessSerialNumber psn = { 0, kCurrentProcess };
 	TransformProcessType(&psn, kProcessTransformToForegroundApplication);
 	[NSApp activateIgnoringOtherApps:YES];
 
+	// Now show the settings window
 	settings = [[TLSettingsWindowController alloc] initWithWindowNibName:@"TLSettingsWindowController"];
 	[settings.window makeKeyAndOrderFront:self];
-}
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-	// Insert code here to tear down your application
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
