@@ -47,6 +47,9 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="i63-KL-D4x" name="value" keyPath="arrangedObjects.extension" id="G9l-To-jX6"/>
+                                            </connections>
                                         </tableColumn>
                                         <tableColumn width="360" minWidth="40" maxWidth="1000" id="85Z-dc-of9">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Action">
@@ -60,8 +63,14 @@
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="i63-KL-D4x" name="value" keyPath="arrangedObjects.action" id="lxw-Am-pY7"/>
+                                            </connections>
                                         </tableColumn>
                                     </tableColumns>
+                                    <connections>
+                                        <binding destination="i63-KL-D4x" name="content" keyPath="arrangedObjects" id="bd2-zd-k5G"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                         </clipView>
@@ -69,7 +78,7 @@
                             <rect key="frame" x="1" y="197" width="480" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Y9q-gy-hdG">
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Y9q-gy-hdG">
                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -88,7 +97,8 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="add:" target="-2" id="hoN-UL-I6e"/>
+                            <action selector="add:" target="i63-KL-D4x" id="mRT-bc-bmq"/>
+                            <binding destination="i63-KL-D4x" name="enabled" keyPath="canAdd" id="BYp-KO-NAg"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n3O-GC-x5O">
@@ -99,10 +109,11 @@
                         <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R8n-Yb-zAZ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
-                            <connections>
-                                <action selector="remove:" target="-2" id="vsH-vI-g2P"/>
-                            </connections>
                         </buttonCell>
+                        <connections>
+                            <action selector="remove:" target="i63-KL-D4x" id="fQp-22-hjT"/>
+                            <binding destination="i63-KL-D4x" name="enabled" keyPath="canRemove" id="6CZ-wn-m8W"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IwG-Q6-ib3">
                         <rect key="frame" x="391" y="13" width="70" height="32"/>
@@ -147,6 +158,12 @@ Gw
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
         </window>
+        <arrayController avoidsEmptySelection="NO" id="i63-KL-D4x">
+            <declaredKeys>
+                <string>extension</string>
+                <string>action</string>
+            </declaredKeys>
+        </arrayController>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
