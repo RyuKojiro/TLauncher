@@ -28,7 +28,7 @@
 }
 
 - (IBAction)save:(id)sender {
-	[self.settings save];
+	[_settings save];
 	[self dismissController:sender];
 }
 
