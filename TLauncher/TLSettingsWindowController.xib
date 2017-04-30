@@ -25,13 +25,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nL-SR-YoY">
-                        <rect key="frame" x="20" y="61" width="440" height="229"/>
+                        <rect key="frame" x="20" y="61" width="440" height="201"/>
                         <clipView key="contentView" id="dwk-sd-WiW">
-                            <rect key="frame" x="1" y="0.0" width="438" height="228"/>
+                            <rect key="frame" x="1" y="0.0" width="438" height="200"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="y2J-Hz-GGG" id="zgh-Px-atm">
-                                    <rect key="frame" x="0.0" y="0.0" width="438" height="205"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="438" height="177"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -156,10 +156,10 @@ Gw
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d7-Uz-mDe">
-                        <rect key="frame" x="18" y="298" width="444" height="42"/>
+                        <rect key="frame" x="18" y="270" width="444" height="70"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="1RD-JX-t8S">
                             <font key="font" metaFont="smallSystem"/>
-                            <string key="title">Here you can assign actions to filetypes, by extension. When saving new extension associations, files of that type will be opened by the command specified. You may use variables that are valid after your shell starts, such as $EDITOR.</string>
+                            <string key="title">Here you can assign actions to filetypes, by extension. When saving new extension associations, files of that type will be opened by the command specified. You may use variables that are valid after your shell starts, such as $EDITOR. You may also specify arguments to the command; the file being opened is always specified as the final argument.</string>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
