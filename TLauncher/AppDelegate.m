@@ -21,6 +21,8 @@
 	 * If the application is NOT launched as a result of opening a file, this
 	 * method is called and applicationDidFinishLaunching is not.
 	 */
+	ProcessSerialNumber psn = { 0, kCurrentProcess };
+	TransformProcessType(&psn, kProcessTransformToForegroundApplication);
 }
 
 
