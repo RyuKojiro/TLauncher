@@ -52,7 +52,21 @@
 	 */
 	TLSettings *settings = [[TLSettings alloc] init];
 	NSString *action = [settings actionForFileExtension:filename.pathExtension];
-	[AppDelegate openFile:filename withTerminalCommand:action];
+
+	if (action) {
+		[AppDelegate openFile:filename withTerminalCommand:action];
+	}
+	else {
+		NSAlert *alert = [[NSAlert alloc] init];
+
+		alert.alertStyle = NSAlertStyleCritical;
+		alert.messageText = @"No action assigned.";
+		alert.informativeText = [NSString stringWithFormat:@"The file extension “%@” is associated with TLauncher, but does not have an action assigned to it. Please open TLauncher and set an action for this extension.", filename.pathExtension];
+
+		[alert runModal];
+		[alert release];
+	}
+
 	[settings release];
 
 	[NSApp terminate:self];
