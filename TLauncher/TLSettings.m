@@ -60,10 +60,6 @@
 	return self;
 }
 
-- (id) content {
-	return [super content];
-}
-
 - (void) save {
 	NSArray *defaults = [[NSUserDefaults standardUserDefaults] arrayForKey:kDefaultsStorageKey];
 
