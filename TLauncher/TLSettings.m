@@ -7,10 +7,12 @@
 //
 
 #import "TLSettings.h"
+#import <CoreServices/CoreServices.h>
 
 #define kExtensionKey       @"extension"
 #define kActionKey          @"action"
 #define kDefaultsStorageKey @"map"
+#define kTLauncherHandlerId @"org.loffgren.tlauncher"
 
 @implementation TLSettings
 
@@ -46,6 +48,49 @@
 }
 
 - (void) save {
+	NSArray *defaults = [[NSUserDefaults standardUserDefaults] arrayForKey:kDefaultsStorageKey];
+
+	/*
+	 * There are only three cases of concern here: addition, removal, and
+	 * modification. The first two are simple, and are handled individually by
+	 * the two for-in blocks that follow. The modification case is handled by
+	 * the fact that it will appear to the comparison logic below as both a
+	 * removal of the old behavior and an addition of the new behavior.
+	 */
+
+	// First unassign any associations that were removed
+	for (NSDictionary *d in defaults) {
+		if (![self.content containsObject:d]) {
+			/*
+			 * This section unregisters TLauncher from the list of handlers
+			 * for the given type. This is done by getting the list, verifying
+			 * that TLauncher is the default, and if so, promoting the second
+			 * application to the default. If there is no second item, we just
+			 * bail and stay associated.
+			 *
+			 * The behavior for determining what application to run for any
+			 * given UTI is documented here:
+			 * https://developer.apple.com/library/content/documentation/Carbon/Conceptual/LaunchServicesConcepts/LSCConcepts/LSCConcepts.html#//apple_ref/doc/uid/TP30000999-CH202-SW21
+			 */
+			CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)d[kExtensionKey], NULL);
+			NSArray *handlers = (NSArray *)LSCopyAllRoleHandlersForContentType(uti, kLSRolesAll);
+			if ([[handlers firstObject] isEqualToString:kTLauncherHandlerId]) {
+				if (handlers.count > 1) {
+					LSSetDefaultRoleHandlerForContentType(uti, kLSRolesViewer, (CFStringRef)handlers[1]);
+				}
+			}
+		}
+	}
+
+	// Now add any new associations
+	for (NSDictionary *d in self.content) {
+		if (![defaults containsObject:d]) {
+			CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)d[kExtensionKey], NULL);
+			LSSetDefaultRoleHandlerForContentType(uti, kLSRolesViewer, (CFStringRef)kTLauncherHandlerId);
+		}
+	}
+
+	// Finally commit the save
 	[[NSUserDefaults standardUserDefaults] setObject:self.content
 											  forKey:kDefaultsStorageKey];
 }
