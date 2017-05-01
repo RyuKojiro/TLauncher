@@ -8,10 +8,6 @@
 
 #import "TLSettingsWindowController.h"
 
-@interface TLSettingsWindowController ()
-
-@end
-
 @implementation TLSettingsWindowController
 
 - (void)windowDidLoad {

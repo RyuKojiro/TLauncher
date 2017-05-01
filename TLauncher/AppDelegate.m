@@ -9,11 +9,6 @@
 #import "AppDelegate.h"
 #import "TLSettings.h"
 
-@interface AppDelegate ()
-
-@property (assign) IBOutlet NSWindow *window;
-@end
-
 @implementation AppDelegate {
 	TLSettingsWindowController *settingsWindowController;
 }
