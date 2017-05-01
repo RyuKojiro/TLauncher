@@ -40,9 +40,9 @@
 	}
 	else {
 		[self addObject:@{kExtensionKey : @"txt",
-						  kActionKey    : @"$EDITOR"}];
+		                  kActionKey    : @"$EDITOR"}];
 		[self addObject:@{kExtensionKey : @"log",
-						  kActionKey    : @"$EDITOR"}];
+		                  kActionKey    : @"$EDITOR"}];
 	}
 }
 
@@ -117,7 +117,7 @@
 
 	// Finally commit the save
 	[[NSUserDefaults standardUserDefaults] setObject:self.content
-											  forKey:kDefaultsStorageKey];
+	                                          forKey:kDefaultsStorageKey];
 }
 
 - (NSString *) actionForFileExtension:(NSString *)extension {

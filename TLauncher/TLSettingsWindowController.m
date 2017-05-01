@@ -43,9 +43,9 @@
 	NSIndexSet *set = [NSIndexSet indexSetWithIndex:row];
 	[_tableView selectRowIndexes:set byExtendingSelection:NO];
 	[_tableView editColumn:0
-					   row:row
-				 withEvent:nil
-					select:YES];
+	                   row:row
+	             withEvent:nil
+	                select:YES];
 }
 
 @end
