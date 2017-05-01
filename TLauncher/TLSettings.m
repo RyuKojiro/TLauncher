@@ -14,6 +14,23 @@
 #define kDefaultsStorageKey @"map"
 #define kTLauncherHandlerId @"org.loffgren.tlauncher"
 
+@implementation NSArray (TLSettingsHelper)
+
+- (NSDictionary *) dictionaryForExtension:(NSString *)extension {
+	__block id result = nil;
+
+	[self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+		if ([obj[kExtensionKey] isEqualToString:extension]) {
+			*stop = YES;
+			result = obj;
+		}
+	}];
+
+	return result;
+}
+
+@end
+
 @implementation TLSettings
 
 - (void) setupInitialContent {
@@ -59,33 +76,45 @@
 	 */
 
 	// First unassign any associations that were removed
-	for (NSDictionary *d in defaults) {
-		if (![self.content containsObject:d]) {
+	for (NSDictionary *def in defaults) {
+		NSString *extension = def[kExtensionKey];
+		NSDictionary *con = [self.content dictionaryForExtension:extension];
+
+		if (![def[kActionKey] isEqualToString:con[kActionKey]]) {
 			/*
 			 * This section unregisters TLauncher from the list of handlers
 			 * for the given type. This is done by getting the list, verifying
 			 * that TLauncher is the default, and if so, promoting the second
 			 * application to the default. If there is no second item, we just
-			 * bail and stay associated.
+			 * bail and stay associated. TLauncher can also be the default
+			 * but not be in the list of handlers. In this case, if there is
+			 * at least a single handler, make the first one the new default.
 			 *
 			 * The behavior for determining what application to run for any
 			 * given UTI is documented here:
 			 * https://developer.apple.com/library/content/documentation/Carbon/Conceptual/LaunchServicesConcepts/LSCConcepts/LSCConcepts.html#//apple_ref/doc/uid/TP30000999-CH202-SW21
 			 */
-			CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)d[kExtensionKey], NULL);
+			CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)extension, NULL);
 			NSArray *handlers = (NSArray *)LSCopyAllRoleHandlersForContentType(uti, kLSRolesAll);
+
 			if ([[handlers firstObject] isEqualToString:kTLauncherHandlerId]) {
 				if (handlers.count > 1) {
 					LSSetDefaultRoleHandlerForContentType(uti, kLSRolesViewer, (CFStringRef)handlers[1]);
 				}
 			}
+			else if (handlers.count > 0) {
+				LSSetDefaultRoleHandlerForContentType(uti, kLSRolesViewer, (CFStringRef)handlers[0]);
+			}
 		}
 	}
 
 	// Now add any new associations
-	for (NSDictionary *d in self.content) {
-		if (![defaults containsObject:d]) {
-			CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)d[kExtensionKey], NULL);
+	for (NSDictionary *con in self.content) {
+		NSString *extension = con[kExtensionKey];
+		NSDictionary *def = [defaults dictionaryForExtension:extension];
+
+		if (![def[kActionKey] isEqualToString:con[kActionKey]]) {
+			CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)con[kExtensionKey], NULL);
 			LSSetDefaultRoleHandlerForContentType(uti, kLSRolesViewer, (CFStringRef)kTLauncherHandlerId);
 		}
 	}
