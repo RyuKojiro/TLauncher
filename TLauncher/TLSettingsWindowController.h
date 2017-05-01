@@ -22,9 +22,9 @@
 
 @property (assign) id <TLSettingsWindowDelegate> delegate;
 
-- (IBAction)save:(id)sender;
-- (IBAction)cancel:(id)sender;
+- (IBAction) save:(id)sender;
+- (IBAction) cancel:(id)sender;
 
-- (IBAction)add:(id)sender;
+- (IBAction) add:(id)sender;
 
 @end

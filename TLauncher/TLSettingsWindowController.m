@@ -10,7 +10,7 @@
 
 @implementation TLSettingsWindowController
 
-- (void)windowDidLoad {
+- (void) windowDidLoad {
     [super windowDidLoad];
 }
 
@@ -23,16 +23,16 @@
 	}
 }
 
-- (IBAction)save:(id)sender {
+- (IBAction) save:(id)sender {
 	[_settings save];
 	[self dismissController:sender];
 }
 
-- (IBAction)cancel:(id)sender {
+- (IBAction) cancel:(id)sender {
 	[self dismissController:sender];
 }
 
-- (IBAction)add:(id)sender {
+- (IBAction) add:(id)sender {
 	NSObject *o = _settings.newObject;
 	[_settings addObject:o];
 	[o release];

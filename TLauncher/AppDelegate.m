@@ -22,7 +22,7 @@
 	[NSApp terminate:self];
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+- (void) applicationDidFinishLaunching:(NSNotification *)aNotification {
 	/*
 	 * If the application is NOT launched as a result of opening a file, this
 	 * method is called and applicationDidFinishLaunching is not.
@@ -40,7 +40,7 @@
 	[settingsWindowController.window makeKeyAndOrderFront:self];
 }
 
-- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
+- (BOOL) application:(NSApplication *)sender openFile:(NSString *)filename {
 	/*
 	 * If the application is launched as a result of opening a file, this
 	 * method is called immedately, before applicationDidFinishLaunching.
