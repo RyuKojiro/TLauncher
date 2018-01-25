@@ -24,6 +24,8 @@
 }
 
 - (IBAction) save:(id)sender {
+    // Should we end editing and save changes that might be mid-edit?
+    
 	[_settings save];
 	[self dismissController:sender];
 }
