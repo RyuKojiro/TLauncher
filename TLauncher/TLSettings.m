@@ -107,12 +107,8 @@
 	// Now add any new associations
 	for (NSDictionary *con in self.content) {
 		NSString *extension = con[kExtensionKey];
-		NSDictionary *def = [defaults dictionaryForExtension:extension];
-
-		if (![def[kActionKey] isEqualToString:con[kActionKey]]) {
-			CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)con[kExtensionKey], NULL);
-			LSSetDefaultRoleHandlerForContentType(uti, kLSRolesViewer, (CFStringRef)kTLauncherHandlerId);
-		}
+		CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)extension, NULL);
+		LSSetDefaultRoleHandlerForContentType(uti, kLSRolesViewer, (CFStringRef)kTLauncherHandlerId);
 	}
 
 	// Finally commit the save
