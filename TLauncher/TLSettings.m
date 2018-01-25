@@ -35,8 +35,13 @@
 
 - (void) setupInitialContent {
 	NSArray *defaults = [[NSUserDefaults standardUserDefaults] arrayForKey:kDefaultsStorageKey];
+
 	if (defaults) {
-		[self addObjects:defaults];
+		for (NSDictionary *entry in defaults) {
+			NSMutableDictionary *mutableEntry = [entry mutableCopy];
+			[self addObject:mutableEntry];
+			[mutableEntry release];
+		}
 	}
 	else {
 		[self addObject:@{kExtensionKey : @"txt",
