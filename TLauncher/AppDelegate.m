@@ -81,8 +81,14 @@
 	NSString *source = [NSString stringWithFormat:@"tell application \"Terminal\" to do script \"%@ \'%@\' && exit\"", command, fileName];
 
 	NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:source];
-	[appleScript executeAndReturnError:nil];
+
+	NSDictionary *e = nil;
+	[appleScript executeAndReturnError:&e];
 	[appleScript release];
+
+	if (e) {
+		NSLog(@"%@", e);
+	}
 
 	[self activateTerminal];
 }
