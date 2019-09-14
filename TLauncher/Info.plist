@@ -43,5 +43,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>This is how TLauncher executes the desired launch commands in Terminal.</string>
 </dict>
 </plist>
